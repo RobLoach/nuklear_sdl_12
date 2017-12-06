@@ -1,2 +1,3 @@
-# nuklear_sdl_12
-SDL 1.2 support for Nuklear
+# Nuklear for SDL 1.2
+
+[SDL](https://www.libsdl.org/) 1.2 support for [Nuklear](https://github.com/vurtun/nuklear).

@@ -17,7 +17,7 @@
 #define NK_IMPLEMENTATION
 #define NK_SDL_IMPLEMENTATION
 #include "nuklear/nuklear.h"
-#include "nuklear_sdl.h"
+#include "nuklear_sdl_12.h"
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
