@@ -44,6 +44,7 @@ int main(int argc, char **argv)
 {
     static SDL_Surface *screen_surface;
     struct nk_color background;
+    struct nk_colorf newBackground;
     int running = 1;
     struct nk_context *ctx;
     float bg[4];
@@ -110,12 +111,12 @@ int main(int argc, char **argv)
             vecSize.y = 10;
             if (nk_combo_begin_color(ctx, background, vecSize)) {
                 nk_layout_row_dynamic(ctx, 120, 1);
-                background = nk_color_picker(ctx, background, NK_RGBA);
+                newBackground = nk_color_picker(ctx, nk_color_cf(background), NK_RGBA);
                 nk_layout_row_dynamic(ctx, 25, 1);
-                background.r = (nk_byte)nk_propertyi(ctx, "#R:", 0, background.r, 255, 1,1);
-                background.g = (nk_byte)nk_propertyi(ctx, "#G:", 0, background.g, 255, 1,1);
-                background.b = (nk_byte)nk_propertyi(ctx, "#B:", 0, background.b, 255, 1,1);
-                background.a = (nk_byte)nk_propertyi(ctx, "#A:", 0, background.a, 255, 1,1);
+                background.r = (nk_byte)nk_propertyi(ctx, "#R:", 0, newBackground.r * 255.0f, 255, 1,1);
+                background.g = (nk_byte)nk_propertyi(ctx, "#G:", 0, newBackground.g * 255.0f, 255, 1,1);
+                background.b = (nk_byte)nk_propertyi(ctx, "#B:", 0, newBackground.b * 255.0f, 255, 1,1);
+                background.a = (nk_byte)nk_propertyi(ctx, "#A:", 0, newBackground.a * 255.0f, 255, 1,1);
                 nk_combo_end(ctx);
             }}
         }
