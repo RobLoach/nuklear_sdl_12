@@ -28,12 +28,32 @@
  *
  * ===============================================================*/
 /* This are some code examples to provide a small overview of what can be
- * done with this library. To try out an example uncomment the include
- * and the corresponding function. */
-/*#include "../style.c"*/
-/*#include "../calculator.c"*/
-/*#include "../overview.c"*/
-/*#include "../node_editor.c"*/
+ * done with this library. To try out an example uncomment the defines */
+/*#define INCLUDE_ALL */
+/*#define INCLUDE_STYLE */
+/*#define INCLUDE_CALCULATOR */
+/*#define INCLUDE_OVERVIEW */
+/*#define INCLUDE_NODE_EDITOR */
+
+#ifdef INCLUDE_ALL
+  #define INCLUDE_STYLE
+  #define INCLUDE_CALCULATOR
+  #define INCLUDE_OVERVIEW
+  #define INCLUDE_NODE_EDITOR
+#endif
+
+#ifdef INCLUDE_STYLE
+  #include "nuklear/demo/style.c"
+#endif
+#ifdef INCLUDE_CALCULATOR
+  #include "nuklear/demo/calculator.c"
+#endif
+#ifdef INCLUDE_OVERVIEW
+  #include "nuklear/demo/overview.c"
+#endif
+#ifdef INCLUDE_NODE_EDITOR
+  #include "nuklear/demo/node_editor.c"
+#endif
 
 /* ===============================================================
  *
@@ -63,11 +83,12 @@ int main(int argc, char **argv)
     ctx = nk_sdl_init(screen_surface);
     background = nk_rgb(28, 48, 62);
 
-    /* style.c */
-    /*set_style(ctx, THEME_WHITE);*/
-    /*set_style(ctx, THEME_RED);*/
+    #ifdef INCLUDE_STYLE
+    /*set_style(ctx, THEME_WHITE); */
+    /*set_style(ctx, THEME_RED); */
     /*set_style(ctx, THEME_BLUE);*/
     /*set_style(ctx, THEME_DARK);*/
+    #endif
 
     while (running)
     {
@@ -127,9 +148,15 @@ int main(int argc, char **argv)
         }
 
         /* -------------- EXAMPLES ---------------- */
-        /*calculator(ctx);*/
-        /*overview(ctx);*/
-        /*node_editor(ctx);*/
+        #ifdef INCLUDE_CALCULATOR
+          calculator(ctx);
+        #endif
+        #ifdef INCLUDE_OVERVIEW
+          overview(ctx);
+        #endif
+        #ifdef INCLUDE_NODE_EDITOR
+          node_editor(ctx);
+        #endif
         /* ----------------------------------------- */
 
         /* Draw */
