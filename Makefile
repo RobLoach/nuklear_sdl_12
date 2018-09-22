@@ -21,3 +21,6 @@ $(BIN): nuklear/nuklear.h
 
 nuklear/nuklear.h:
 	git submodule update --init
+
+test: $(BIN)
+	bin/$(BIN)
