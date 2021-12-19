@@ -4,6 +4,20 @@
 
 ![Nuklear for SDL 1.2 Screenshot](screenshot.png)
 
+## Dependencies
+
+- [SDL 1.2](https://github.com/libsdl-org/SDL-1.2)
+- SDL_gfxPrimitives
+
+## API
+
+``` c
+struct nk_context*   nk_sdl_init(SDL_Surface *screen_surface);
+void                 nk_sdl_handle_event(SDL_Event *evt);
+void                 nk_sdl_render(struct nk_color clear);
+void                 nk_sdl_shutdown(void);
+```
+
 ## Credit
 
 - [Micha Mettke](https://github.com/vurtun)

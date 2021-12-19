@@ -2,7 +2,8 @@
 BIN = demo
 
 # Flags
-CFLAGS = -std=c89 -pedantic -O2 
+CFLAGS = -std=c89 -pedantic -O2
+INC = nuklear
 
 SRC = main.c
 OBJ = $(SRC:.c=.o)
@@ -17,7 +18,7 @@ endif
 $(BIN): nuklear/nuklear.h
 	@mkdir -p bin
 	rm -f bin/$(BIN) $(OBJS)
-	$(CC) $(SRC) $(CFLAGS) -o bin/$(BIN) $(LIBS)
+	$(CC) $(SRC) $(CFLAGS) -o bin/$(BIN) $(LIBS) -I$(INC)
 
 nuklear/nuklear.h:
 	git submodule update --init

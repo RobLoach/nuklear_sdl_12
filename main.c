@@ -16,7 +16,7 @@
 #define NK_INCLUDE_DEFAULT_ALLOCATOR
 #define NK_IMPLEMENTATION
 #define NK_SDL_IMPLEMENTATION
-#include "nuklear/nuklear.h"
+#include "nuklear.h"
 #include "nuklear_sdl_12.h"
 
 #define WINDOW_WIDTH 1200

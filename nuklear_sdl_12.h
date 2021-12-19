@@ -22,6 +22,7 @@ NK_API void                 nk_sdl_render(struct nk_color clear);
 NK_API void                 nk_sdl_shutdown(void);
 
 #endif
+
 /*
  * ==============================================================
  *
@@ -476,6 +477,4 @@ nk_sdl_shutdown(void)
     nk_free(&sdl.ctx);
 }
 
-
 #endif
-
