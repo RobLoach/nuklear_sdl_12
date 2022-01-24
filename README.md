@@ -7,7 +7,7 @@
 ## Dependencies
 
 - [SDL 1.2](https://github.com/libsdl-org/SDL-1.2)
-- SDL_gfxPrimitives
+- [SDL_gfxPrimitives](https://github.com/ferzkopp/SDL_gfx)
 
 ## API
 

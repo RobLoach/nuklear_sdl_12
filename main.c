@@ -1,4 +1,3 @@
-/* nuklear - v1.09 - public domain */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -6,7 +5,8 @@
 #include <string.h>
 #include <math.h>
 #include <assert.h>
-#include <math.h>
+#include <limits.h>
+#include <time.h>
 
 #include <SDL/SDL.h>
 
@@ -29,15 +29,17 @@
  * ===============================================================*/
 /* This are some code examples to provide a small overview of what can be
  * done with this library. To try out an example uncomment the defines */
-/*#define INCLUDE_ALL */
+#define INCLUDE_ALL
 /*#define INCLUDE_STYLE */
 /*#define INCLUDE_CALCULATOR */
+/*#define INCLUDE_CANVAS */
 /*#define INCLUDE_OVERVIEW */
 /*#define INCLUDE_NODE_EDITOR */
 
 #ifdef INCLUDE_ALL
   #define INCLUDE_STYLE
   #define INCLUDE_CALCULATOR
+  #define INCLUDE_CANVAS
   #define INCLUDE_OVERVIEW
   #define INCLUDE_NODE_EDITOR
 #endif
@@ -47,6 +49,9 @@
 #endif
 #ifdef INCLUDE_CALCULATOR
   #include "nuklear/demo/calculator.c"
+#endif
+#ifdef INCLUDE_CANVAS
+  #include "nuklear/demo/canvas.c"
 #endif
 #ifdef INCLUDE_OVERVIEW
   #include "nuklear/demo/overview.c"
@@ -150,6 +155,9 @@ int main(int argc, char **argv)
         /* -------------- EXAMPLES ---------------- */
         #ifdef INCLUDE_CALCULATOR
           calculator(ctx);
+        #endif
+        #ifdef INCLUDE_CANVAS
+          canvas(ctx);
         #endif
         #ifdef INCLUDE_OVERVIEW
           overview(ctx);
