@@ -282,6 +282,11 @@ nk_sdl_render(struct nk_color clear)
             nk_sdl_stroke_line(screen_surface, l->begin.x, l->begin.y, l->end.x,
                 l->end.y, l->line_thickness, l->color);
         } break;
+        case NK_COMMAND_CURVE: {
+            const struct nk_command_curve *q = (const struct nk_command_curve *)cmd;
+            nk_sdl_stroke_curve(screen_surface, q->begin, q->ctrl[0], q->ctrl[1],
+                q->end, 22, q->line_thickness, q->color);
+        } break;
         case NK_COMMAND_RECT: {
             const struct nk_command_rect *r = (const struct nk_command_rect *)cmd;
             nk_sdl_stroke_rect(screen_surface, r->x, r->y, r->w, r->h,
@@ -292,6 +297,10 @@ nk_sdl_render(struct nk_color clear)
             nk_sdl_fill_rect(screen_surface, r->x, r->y, r->w, r->h,
                 (unsigned short)r->rounding, r->color);
         } break;
+        case NK_COMMAND_RECT_MULTI_COLOR: {
+            const struct nk_command_rect_multi_color *r = (const struct nk_command_rect_multi_color *)cmd;
+            nk_sdl_fill_rect_multi_color(screen_surface, r->x, r->y, r->w, r->h, r->left, r->top, r->right, r->bottom);
+        } break;
         case NK_COMMAND_CIRCLE: {
             const struct nk_command_circle *c = (const struct nk_command_circle *)cmd;
             nk_sdl_stroke_circle(screen_surface, c->x, c->y, c->w, c->h, c->line_thickness, c->color);
@@ -299,6 +308,12 @@ nk_sdl_render(struct nk_color clear)
         case NK_COMMAND_CIRCLE_FILLED: {
             const struct nk_command_circle_filled *c = (const struct nk_command_circle_filled *)cmd;
             nk_sdl_fill_circle(screen_surface, c->x, c->y, c->w, c->h, c->color);
+        } break;
+        case NK_COMMAND_ARC: {
+            /* TODO: Implement NK_COMMAND_ARC */
+        } break;
+        case NK_COMMAND_ARC_FILLED: {
+            /* TODO: Implement NK_COMMAND_ARC_FILLED */
         } break;
         case NK_COMMAND_TRIANGLE: {
             const struct nk_command_triangle*t = (const struct nk_command_triangle*)cmd;
@@ -328,18 +343,12 @@ nk_sdl_render(struct nk_color clear)
                 (nk_sdl_Font*)t->font->userdata.ptr,
                 t->background, t->foreground);
         } break;
-        case NK_COMMAND_CURVE: {
-            const struct nk_command_curve *q = (const struct nk_command_curve *)cmd;
-            nk_sdl_stroke_curve(screen_surface, q->begin, q->ctrl[0], q->ctrl[1],
-                q->end, 22, q->line_thickness, q->color);
+        case NK_COMMAND_IMAGE: {
+            /* TODO: Implement NK_COMMAND_IMAGE */
         } break;
-        case NK_COMMAND_RECT_MULTI_COLOR: {
-            const struct nk_command_rect_multi_color *r = (const struct nk_command_rect_multi_color *)cmd;
-            nk_sdl_fill_rect_multi_color(screen_surface, r->x, r->y, r->w, r->h, r->left, r->top, r->right, r->bottom);
+        case NK_COMMAND_CUSTOM: {
+            /* TODO: Implement NK_COMMAND_CUSTOM */
         } break;
-        case NK_COMMAND_IMAGE:
-        case NK_COMMAND_ARC:
-        case NK_COMMAND_ARC_FILLED:
         default: break;
         }
     }

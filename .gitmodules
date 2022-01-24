@@ -1,0 +1,5 @@
+[submodule "nuklear"]
+	path = nuklear
+	url = https://github.com/Immediate-Mode-UI/Nuklear.git
+	branch = master
+	ignore = dirty
