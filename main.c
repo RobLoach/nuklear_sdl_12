@@ -45,19 +45,19 @@
 #endif
 
 #ifdef INCLUDE_STYLE
-  #include "nuklear/demo/style.c"
+  #include "nuklear/demo/common/style.c"
 #endif
 #ifdef INCLUDE_CALCULATOR
-  #include "nuklear/demo/calculator.c"
+  #include "nuklear/demo/common/calculator.c"
 #endif
 #ifdef INCLUDE_CANVAS
-  #include "nuklear/demo/canvas.c"
+  #include "nuklear/demo/common/canvas.c"
 #endif
 #ifdef INCLUDE_OVERVIEW
-  #include "nuklear/demo/overview.c"
+  #include "nuklear/demo/common/overview.c"
 #endif
 #ifdef INCLUDE_NODE_EDITOR
-  #include "nuklear/demo/node_editor.c"
+  #include "nuklear/demo/common/node_editor.c"
 #endif
 
 /* ===============================================================

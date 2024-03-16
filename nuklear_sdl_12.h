@@ -63,7 +63,7 @@ nk_sdl_scissor(SDL_Surface *surface, float x, float y, float w, float h)
 {
     sdl_clip_rect.x = x;
     sdl_clip_rect.y = y;
-    sdl_clip_rect.w = w  + 1; 
+    sdl_clip_rect.w = w  + 1;
     sdl_clip_rect.h = h;
     SDL_SetClipRect(surface, &sdl_clip_rect);
 }
@@ -81,7 +81,7 @@ nk_sdl_stroke_rect(SDL_Surface *surface, short x, short y, unsigned short w,
 {
     /* Note: thickness is not used by default */
     if (r == 0) {
-        rectangleRGBA(surface, x, y, x + w, y + h, col.r, col.g, col.b, col.a); 
+        rectangleRGBA(surface, x, y, x + w, y + h, col.r, col.g, col.b, col.a);
     } else {
         roundedRectangleRGBA(surface, x, y, x + w, y + h, r, col.r, col.g, col.b, col.a);
     }
@@ -92,13 +92,13 @@ nk_sdl_fill_rect(SDL_Surface *surface, short x, short y, unsigned short w,
     unsigned short h, unsigned short r, struct nk_color col)
 {
     if (r == 0) {
-        boxRGBA(surface, x, y, x + w, y + h, col.r, col.g, col.b, col.a); 
+        boxRGBA(surface, x, y, x + w, y + h, col.r, col.g, col.b, col.a);
     } else {
         roundedBoxRGBA(surface, x, y, x + w, y + h, r, col.r, col.g, col.b, col.a);
     }
 }
 
-static void 
+static void
 nk_sdl_fill_triangle(SDL_Surface *surface, short x0, short y0, short x1, short y1, short x2, short y2, struct nk_color col)
 {
     filledTrigonRGBA(surface, x0, y0, x1, y1, x2, y2, col.r, col.g, col.b, col.a);
@@ -109,7 +109,7 @@ nk_sdl_stroke_triangle(SDL_Surface *surface, short x0, short y0, short x1,
     short y1, short x2, short y2, unsigned short line_thickness, struct nk_color col)
 {
     /* Note: thickness is not used by default */
-    aatrigonRGBA(surface, x0, y0, x1, y1, x2, y2, col.r, col.g, col.b, col.a); 
+    aatrigonRGBA(surface, x0, y0, x1, y1, x2, y2, col.r, col.g, col.b, col.a);
 }
 
 static void
@@ -137,7 +137,7 @@ nk_sdl_stroke_polygon(SDL_Surface *surface, const struct nk_vec2i *pnts, int cou
         p_x[i] = pnts[i].x;
         p_y[i] = pnts[i].y;
     }
-    aapolygonRGBA(surface, (Sint16 *)p_x, (Sint16 *)p_y, count, col.r, col.g, col.b, col.a); 
+    aapolygonRGBA(surface, (Sint16 *)p_x, (Sint16 *)p_y, count, col.r, col.g, col.b, col.a);
 }
 
 static void
@@ -167,7 +167,7 @@ static void
 nk_sdl_fill_circle(SDL_Surface *surface, short x, short y, unsigned short w,
     unsigned short h, struct nk_color col)
 {
-    filledEllipseRGBA(surface,  x + w /2, y + h /2, w / 2, h / 2, col.r, col.g, col.b, col.a); 
+    filledEllipseRGBA(surface,  x + w /2, y + h /2, w / 2, h / 2, col.r, col.g, col.b, col.a);
 }
 
 static void
@@ -175,7 +175,7 @@ nk_sdl_stroke_circle(SDL_Surface *surface, short x, short y, unsigned short w,
     unsigned short h, unsigned short line_thickness, struct nk_color col)
 {
     /* Note: thickness is not used by default */
-    aaellipseRGBA (surface,  x + w /2, y + h /2, w / 2, h / 2, col.r, col.g, col.b, col.a); 
+    aaellipseRGBA (surface,  x + w /2, y + h /2, w / 2, h / 2, col.r, col.g, col.b, col.a);
 }
 
 static void
@@ -244,7 +244,7 @@ nk_sdl_fill_rect_multi_color(SDL_Surface *surface, short x, short y, unsigned sh
             interpolate_color(left, top, &X1, fraction_x);
             interpolate_color(right, bottom, &X2, fraction_x);
             interpolate_color(X1, X2, &Y, fraction_y);
-            pixelRGBA(surface, x + i, y + j, Y.r, Y.g, Y.b, Y.a); 
+            pixelRGBA(surface, x + i, y + j, Y.r, Y.g, Y.b, Y.a);
         }
     }
 }
@@ -354,7 +354,6 @@ nk_sdl_render(struct nk_color clear)
     }
     nk_sdl_blit(sdl.screen_surface);
     nk_clear(&sdl.ctx);
-
 }
 
 static void
